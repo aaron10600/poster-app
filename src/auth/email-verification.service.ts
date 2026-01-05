@@ -42,11 +42,11 @@ export class EmailVerificationService {
         });
 
         if (!record) {
-            console.log('NO VERIFICATION CODE ON DB');
+           
             return false;
         }
 
-        if (record.expiresAt < new Date()) console.log("VERIFICATION CODE EXPIRED, TRY AGAIN")
+        // if (record.expiresAt < new Date()) console.log("VERIFICATION CODE EXPIRED, TRY AGAIN")
 
         if (record.expiresAt < new Date()) return false;
 

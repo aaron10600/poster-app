@@ -172,7 +172,6 @@ export class UsersService {
 
 
   async deactivateUser(userId: string, plainPassword: string):Promise<{ message: string }>{
-    console.log(plainPassword)
     const user = await this.userRepository.findOne({
       where: { id: userId },
       select: ['id', 'password', 'isActive', 'email'] 

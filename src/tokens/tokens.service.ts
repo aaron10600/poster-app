@@ -79,8 +79,7 @@ async generateRefreshToken(user: User): Promise<string> {
       where: { user: { id: user.id } },
     });
 
-    console.log("tokens on validaterefreshtoken")
-    console.log(tokens)
+
     //AQUI PILLA CORRECTAMENTE EL REFRESHTOKEN QUE HAY EN LA DB, PERO PONE USER UNDEFINED
 
     for (const token of tokens) {

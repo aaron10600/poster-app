@@ -1,10 +1,21 @@
+version: "3.9"
+
 services:
+  api:
+    build: .
+    container_name: nest_api
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+
   postgres:
     image: postgres:15
     container_name: nest_auth_postgres
     restart: always
-    ports:
-      - '5433:5432'
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}

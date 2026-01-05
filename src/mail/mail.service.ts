@@ -9,10 +9,7 @@ export class MailService implements OnModuleInit {
   private logger = new Logger(MailService.name);
 
   constructor(private readonly configService: ConfigService) {
-    console.log(this.configService.get<string>('MAIL_HOST'));
-    console.log(this.configService.get<number>('MAIL_PORT'));
-    console.log(this.configService.get<string>('MAIL_USER'));
-    console.log(this.configService.get<string>('MAIL_KEY'));
+
     this.transporter = nodemailer.createTransport({
       host: this.configService.get<string>('MAIL_HOST'), 
       port: this.configService.get<number>('MAIL_PORT'), 
@@ -89,7 +86,6 @@ export class MailService implements OnModuleInit {
 
 
   async sendResetPassword(to: string ,email: string, resetLink: string) {
-    console.log('RESET LINK SENT TO', email, resetLink);
     const html = forgotPasswordMail(resetLink);
 
     await this.sendMail(to, 'Your reset password code', html);
