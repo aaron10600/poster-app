@@ -21,6 +21,7 @@ import { RateLimitModule } from './rate-limit/rate-limit.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { TelegramService } from './telegram/telegram.service';
 import { HealthModule } from './health/health.module';
+import { PostsModule } from './post/posts.module';
 
 
 @Module({
@@ -58,7 +59,8 @@ import { HealthModule } from './health/health.module';
     RolesModule,
     RateLimitModule,
     TelegramModule,
-    HealthModule
+    HealthModule, 
+    PostsModule
   ],
 
   controllers: [TestController, UsersController],

@@ -5,7 +5,7 @@ export const verificationMail = (code: string, appUrl: string, to: string): stri
       <p>Tu código de verificación es:</p>
       <h2 style="letter-spacing: 2px">${code}</h2>
       <p>O haz click aquí:</p>
-      <a href="${appUrl}/verify?code=${code}&email=${encodeURIComponent(to)}">
+      <a href="${appUrl}/auth/verify?code=${code}&email=${encodeURIComponent(to)}">
         Verificar correo
       </a>
     `

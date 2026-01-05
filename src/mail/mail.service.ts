@@ -67,7 +67,7 @@ export class MailService implements OnModuleInit {
   //FUNCTION TO SEND EMAIL TO VERIFY ACCOUNT
   async sendVerification(to: string, code: string) {
     const appUrl =
-      this.configService.get<string>('APP_URL') || 'http://localhost:3000';
+      this.configService.get<string>('FRONTEND_URL') || 'http://localhost:3001';
 
     //CHANGE THIS TO CUSTOM HTML TEMPLATES
     const html = verificationMail(code, appUrl, to);
@@ -79,7 +79,7 @@ export class MailService implements OnModuleInit {
   //FUNCTION TO SEND MAIL TO WARN THE USER ABOUT THEIR ACCOUNT DELETION
   async sendDeletionWarning(to: string) {
     const appUrl =
-      this.configService.get<string>('APP_URL') || 'http://localhost:3000';
+      this.configService.get<string>('FRONTEND_URL') || 'http://localhost:3001';
 
     //CHANGE THIS TO CUSTOM HTML TEMPLATES
     const html = deletionWarningMail(appUrl);

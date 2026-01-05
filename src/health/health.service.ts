@@ -21,7 +21,7 @@ export class HealthService {
   }
 
   //EVERY 15 MIN
-  @Cron('*/15 * * * *')
+  @Cron('*/1440 * * * *')
   async notifyStatus() {
     try {
       const result = await this.check();
