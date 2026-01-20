@@ -47,4 +47,9 @@ export class PostsController {
   remove(@Param('id') id: string) {
     return this.postsService.remove(id);
   }
+
+  @Get('/deploy-test')
+  deployTest(): string {
+    return 'Cambio desplegado automáticamente';
+  }
 }
