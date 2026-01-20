@@ -22,6 +22,8 @@ import { TelegramModule } from './telegram/telegram.module';
 import { TelegramService } from './telegram/telegram.service';
 import { HealthModule } from './health/health.module';
 import { PostsModule } from './post/posts.module';
+import { DeployController } from './deploy-test/deploy.controller';
+import { DeployModule } from './deploy-test/deploy.module';
 
 
 @Module({
@@ -60,10 +62,12 @@ import { PostsModule } from './post/posts.module';
     RateLimitModule,
     TelegramModule,
     HealthModule, 
-    PostsModule
+    PostsModule,
+    DeployModule
+    
   ],
 
-  controllers: [TestController, UsersController],
+  controllers: [TestController, UsersController, DeployController],
 
   providers: [
     {
