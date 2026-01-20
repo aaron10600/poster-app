@@ -1,25 +1,21 @@
-version: "3.9"
-
 services:
   api:
-    build: .
+    image: aaron10600/poster-app-api:latest
     container_name: nest_api
     restart: always
-    ports:
-      - "3000:3000"
     env_file:
       - .env
+    ports:
+      - "3000:3000"
     depends_on:
       - postgres
 
   postgres:
     image: postgres:15
-    container_name: nest_auth_postgres
+    container_name: nest_postgres
     restart: always
-    environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
