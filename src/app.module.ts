@@ -27,6 +27,8 @@ import { DeployModule } from './deploy-test/deploy.module';
 import { RawgModule } from './integrations/rawg/rawg.module';
 import { GamesModule } from './games/games.module';
 import { UserGamesModule } from './user-games/user-games.module';
+import { GamesController } from './games/games.controller';
+import { UserGamesController } from './user-games/user-games.controller';
 
 
 @Module({
@@ -73,7 +75,7 @@ import { UserGamesModule } from './user-games/user-games.module';
     
   ],
 
-  controllers: [TestController, UsersController, DeployController],
+  controllers: [TestController, UsersController, DeployController, GamesController, UserGamesController],
 
   providers: [
     {
