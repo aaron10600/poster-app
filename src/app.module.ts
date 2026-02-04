@@ -24,6 +24,9 @@ import { HealthModule } from './health/health.module';
 import { PostsModule } from './post/posts.module';
 import { DeployController } from './deploy-test/deploy.controller';
 import { DeployModule } from './deploy-test/deploy.module';
+import { RawgModule } from './integrations/rawg/rawg.module';
+import { GamesModule } from './games/games.module';
+import { UserGamesModule } from './user-games/user-games.module';
 
 
 @Module({
@@ -63,7 +66,10 @@ import { DeployModule } from './deploy-test/deploy.module';
     TelegramModule,
     HealthModule, 
     PostsModule,
-    DeployModule
+    DeployModule,
+    RawgModule,
+    GamesModule,
+    UserGamesModule,
     
   ],
 
