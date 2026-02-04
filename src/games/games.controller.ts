@@ -6,7 +6,7 @@ export class GamesController {
   constructor(private readonly gamesService: GamesService) {}
 
   @Get('search')
-  search(@Query('q') q: string) {
-    return this.gamesService.search(q);
+  search(@Query('search') seacrh: string) {
+    return this.gamesService.search(seacrh);
   }
 }

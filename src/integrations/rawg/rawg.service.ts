@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import axios from 'axios';
 
 @Injectable()
 export class RawgService {
@@ -7,14 +6,19 @@ export class RawgService {
   private API_KEY = process.env.RAWG_API_KEY;
 
   async searchGames(query: string) {
-    const res = await axios.get(this.API_URL, {
-      params: {
-        key: this.API_KEY,
-        search: query,
-        page_size: 10,
-      },
+    const params = new URLSearchParams({
+      key: this.API_KEY!,
+      search: query,
+      page_size: '10',
     });
 
-    return res.data.results;
+    const res = await fetch(`${this.API_URL}?${params.toString()}`);
+
+    if (!res.ok) {
+      throw new Error(`RAWG API error: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return data.results;
   }
 }
